@@ -14,10 +14,8 @@ const createTodo = (req, res) => {
 
 // --------------------------------------------------Fetch all todo
 const getTodo = async (req, res) => {
-  const allTodo = await Todo.find();
-  res.json({
-    allTodo,
-  });
+  const todos = await Todo.find();
+  res.send(todos);
 };
 
 // --------------------------------------------------Update a todo as done
