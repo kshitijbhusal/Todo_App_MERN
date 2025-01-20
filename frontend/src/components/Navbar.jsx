@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className="bg-[#A31D1D] text-white h-[4rem] px-4 py-3 flex justify-between items-center">
       <div className="text-xl font-bold">
-        <Link to="/">prepnepal</Link>
+        <Link to="/">FullPower</Link>
       </div>
       <ul className="flex space-x-6">
         <li>
