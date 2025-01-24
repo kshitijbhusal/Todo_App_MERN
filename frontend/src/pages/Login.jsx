@@ -1,9 +1,10 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const [errorMsg, setErrorMsg] = useState("");
   const {
     register,
     handleSubmit,
@@ -16,16 +17,16 @@ const Home = () => {
   //--------------------------------------
 
   const onSubmit = async (data) => {
-    console.log(data);
     try {
       const res = await axios.post("http://localhost:8000/user/login", data);
-      console.log(res);
+      console.log(res.response);
 
       if (res.status === 200) {
         navigate("/");
       }
     } catch (error) {
-      console.log("Login Failed", error);
+      setErrorMsg(error.response.data.message);
+      console.log("Login Failed", error.response.data.message);
     }
   };
 
@@ -64,7 +65,8 @@ const Home = () => {
                 className="outline-none ring-1 ring-black m-2 rounded-sm px-1 font-semibold w-30 "
               />
             </div>
-
+            {/* {err && <p>error message</p>} */}
+            {errorMsg ? <p>{errorMsg}</p> : null}
             <input
               value="Login"
               type="submit"
