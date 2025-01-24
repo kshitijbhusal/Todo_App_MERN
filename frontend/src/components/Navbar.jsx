@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { TbLeaf } from "react-icons/tb";
+
 const Navbar = () => {
   return (
     <nav className="bg-[#A31D1D] text-white h-[4rem] px-4 py-3 flex justify-between items-center">
-      <div className="text-xl font-bold">
-        <Link to="/">FullPower</Link>
+      <div className="text-xl font-bold  ">
+        <Link to="/" className="flex">
+          <h1 className="text-2xl">Mindleaf</h1>
+          <TbLeaf size={30} />
+        </Link>
       </div>
       <ul className="flex space-x-6">
         <li>
