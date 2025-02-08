@@ -12,16 +12,16 @@ const Home = () => {
     formState: { errors },
   } = useForm();
 
-  const navigate = useNavigate();
-
   //--------------------------------------
 
+  const navigate = useNavigate();
   const onSubmit = async (data) => {
     try {
+      axios.defaults.withCredentials = true;
       const res = await axios.post("http://localhost:8000/user/login", data);
-      console.log(res.response);
 
       if (res.status === 200) {
+        console.log("Login Success");
         navigate("/");
       }
     } catch (error) {

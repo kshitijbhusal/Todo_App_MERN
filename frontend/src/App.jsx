@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Account from "./pages/Account";
 
 import { Route, Routes } from "react-router-dom";
-import ProctedRoute from "./utils/ProtectedRoute";
+// import ProctedRoute from "./utils/ProtectedRoute";
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
       <div className="h-30 w-20 bg-red-700"></div>
       <div>
         <Routes>
-          <Route
+          {/* <Route
             path="/"
             element={
               <ProctedRoute>
@@ -32,7 +32,11 @@ const App = () => {
                 <Account />
               </ProctedRoute>
             }
-          />
+          /> */}
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/account" element={<Account />} />
         </Routes>
       </div>
     </>

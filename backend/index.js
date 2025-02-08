@@ -10,7 +10,6 @@ import todoRouter from "./routes/todo.route.js";
 
 // Configs
 dotenv.config({});
-app.use(cors());
 
 /// Database connect
 connectDB();
@@ -18,6 +17,15 @@ connectDB();
 //-------------------------------------------------------------------- Default middleware
 app.use(express.json());
 app.use(cookieParser());
+
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Replace with your frontend URL
+    credentials: true, // Required to send/receive cookies
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+  })
+);
 
 //-------------------------------------------------------------------- API'S
 
