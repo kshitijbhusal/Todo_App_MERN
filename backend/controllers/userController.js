@@ -80,3 +80,16 @@ export const getMe = async (req, res) => {
     wellcome: `You are wellcome Mr `,
   });
 };
+
+export const auth = (req, res) => {
+  const token = req.cookies.authToken;
+
+  if (!token) {
+    return res.status(401).json({
+      message: "You are not authenticated",
+    });
+  }
+  res.status(200).json({
+    message: "You are authenticated",
+  });
+};

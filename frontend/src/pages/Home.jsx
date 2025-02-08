@@ -10,7 +10,6 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get("http://localhost:8000/todo/get");
-        console.log(res);
         setTodos(res.data);
       } catch (error) {
         console.log(error);
