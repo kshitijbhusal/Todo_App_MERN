@@ -4,8 +4,13 @@ import { Link } from "react-router-dom";
 import { TbLeaf } from "react-icons/tb";
 
 const Navbar = () => {
+  const handleLogout = () => {
+    const res = axios.post("http://localhost:8000/user/logout", {
+      withCredentials: true,
+    });
+  };
   return (
-    <nav className="bg-[#A31D1D] text-white h-[4rem] px-4 py-3 flex justify-between items-center">
+    <nav className="bg-[#31572C] text-[#ECF39E] h-[4rem] px-4 py-3 flex justify-between items-center">
       <div className="text-xl font-bold  ">
         <Link to="/" className="flex">
           <h1 className="text-2xl">Mindleaf</h1>
@@ -37,6 +42,15 @@ const Navbar = () => {
             className="text-black bg-[#E5D0AC] px-3 py-1   rounded-sm"
           >
             Login
+          </Link>
+        </li>
+        <li>
+          <Link
+            onClick={handleLogout}
+            to="/logout"
+            className="text-black bg-[#E5D0AC] px-3 py-1   rounded-sm"
+          >
+            Logout
           </Link>
         </li>
       </ul>

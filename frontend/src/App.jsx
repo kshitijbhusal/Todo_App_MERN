@@ -14,20 +14,23 @@ import { useNavigate } from "react-router-dom";
 const App = () => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const checkAuth = async () => {
+    try {
+      axios.defaults.withCredentials = true;
+      const res = await axios.get("http://localhost:8000/user/auth");
+      if (res.status === 200) {
+        setIsLoggedIn(true);
+        navigate("/");
+      }
+    } catch (error) {}
+  };
+
   useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        axios.defaults.withCredentials = true;
-        const res = await axios.get("http://localhost:8000/user/auth");
-        if (res.status === 200) {
-          setIsLoggedIn(true);
-          navigate("/");
-          console.log("You are authenticated");
-        }
-      } catch (error) {}
-    };
     checkAuth();
   }, []);
+
+  console.log(isLoggedIn);
   return (
     <>
       <Navbar />
@@ -42,7 +45,10 @@ const App = () => {
               </ProctedRoute>
             }
           />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={<Login setIsLoggedIn={setIsLoggedIn} />}
+          />
           <Route path="/signup" element={<SignUp />} />
           <Route
             path="/account"

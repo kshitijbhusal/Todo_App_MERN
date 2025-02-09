@@ -5,11 +5,11 @@ const Todos = ({ todos }) => {
     <div>
       {/* //----------------------------------Render Todos---------------------------------------------- */}
 
-      <div className="min-h-[calc(100vh-4rem)] w-[50%] flex flex-col items-center py-5 drop-shadow-lg ">
+      <div className="min-h-[calc(100vh-4rem)] w-[50%] flex flex-col items-center py-5 drop-shadow-lg border-[#90A955] ">
         {todos.map((todo, index) => (
           <div
             key={index}
-            className="bg-white  m-2 w-80 border border-slate-500 rounded-lg px-4 py-2 hover:bg-slate-50 flex justify-between"
+            className="bg-white  m-2 w-80 border  rounded-lg px-4 py-2 hover:bg-slate-50 flex justify-between"
           >
             <div>
               <h1 className="text-lg font-semibold  text-black">

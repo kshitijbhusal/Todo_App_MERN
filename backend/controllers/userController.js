@@ -73,6 +73,7 @@ export const login = async (req, res) => {
 
 // --------------------------------------------------get me
 //
+
 export const getMe = async (req, res) => {
   const user = await User.findOne({ _id: req.id });
   res.status(200).json({
@@ -81,6 +82,18 @@ export const getMe = async (req, res) => {
   });
 };
 
+// --------------------------------------------------Login
+//
+
+export const logout = (req, res) => {
+  res.send(console.log("logout"));
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+  });
+  return res.status(200).json({ message: "Logged out successfully" });
+};
 export const auth = (req, res) => {
   const token = req.cookies.authToken;
 

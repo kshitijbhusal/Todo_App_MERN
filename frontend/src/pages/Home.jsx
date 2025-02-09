@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="min-h-[calc(100vh-4rem)] bg-white opacity-90 flex items-center justify-between px-36  ">
+      <div className="min-h-[calc(100vh-4rem)]  opacity-90 flex items-center justify-between px-36  ">
         <CreateTodo />
         <Todos todos={todos} />
       </div>

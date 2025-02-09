@@ -33,8 +33,8 @@ const CreateTodo = () => {
     <div className=" w-[50%] ">
       {/* //----------------------------------Form for Todos---------------------------------------------- */}
 
-      <div className="w-full h-80 max-w-md  shadow-lg rounded-lg p-6 border border-brown-200">
-        <h1 className="text-2xl font-bold text-brown-700 mb-6 text-center">
+      <div className="w-full h-80  max-w-md  shadow-lg rounded-lg p-6 border border-brown-200">
+        <h1 className="text-2xl font-bold text-brown-700 mb-6 text-center text-[#132A13]">
           Make your todo's now.
         </h1>
         <form
@@ -67,7 +67,7 @@ const CreateTodo = () => {
           <input
             type="submit"
             onClick={handleSubmit}
-            className="w-full bg-red-600   text-white text-lg py-2 rounded-md hover:bg-brown-700 transition duration-300"
+            className="w-full bg-[#4F772D]   text-[white] text-lg py-2 rounded-md hover:bg-brown-700 transition duration-300"
           />
         </form>
       </div>

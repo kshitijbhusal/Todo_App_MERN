@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-const Home = () => {
+const Login = ({ setIsLoggedIn }) => {
   const [errorMsg, setErrorMsg] = useState("");
   const {
     register,
@@ -22,6 +22,7 @@ const Home = () => {
 
       if (res.status === 200) {
         console.log("Login Success");
+        setIsLoggedIn(true);
         navigate("/");
       }
     } catch (error) {
@@ -79,4 +80,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Login;
