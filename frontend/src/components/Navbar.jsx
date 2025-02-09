@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { TbLeaf } from "react-icons/tb";
+import axios from "axios";
 
 const Navbar = () => {
   const handleLogout = () => {
-    const res = axios.post("http://localhost:8000/user/logout", {
-      withCredentials: true,
-    });
+    axios.defaults.withCredentials = true;
+    const res = axios.post("http://localhost:8000/user/logout");
   };
   return (
     <nav className="bg-[#31572C] text-[#ECF39E] h-[4rem] px-4 py-3 flex justify-between items-center">

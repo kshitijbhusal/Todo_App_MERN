@@ -86,12 +86,8 @@ export const getMe = async (req, res) => {
 //
 
 export const logout = (req, res) => {
-  res.send(console.log("logout"));
-  res.clearCookie("token", {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
-  });
+  res.clearCookie("authToken");
+
   return res.status(200).json({ message: "Logged out successfully" });
 };
 export const auth = (req, res) => {

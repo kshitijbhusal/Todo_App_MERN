@@ -32,8 +32,8 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="h-screen py-32 flex justify-center  bg-[#E5D0AC] ">
-        <div className="bg-[#FEF9E1] py-6  h-80 w-96 flex flex-col  items-center gap-y-10 rounded-lg drop-shadow-lg ">
+      <div className="h-screen py-32 flex justify-center  bg-white ">
+        <div className="py-6  h-80 w-96 flex flex-col  items-center gap-y-10 rounded-lg shadow-lg ">
           <h1 className="text-2xl font-semibold ">Sign Up</h1>
 
           <form
@@ -80,7 +80,7 @@ const SignUp = () => {
             <input
               type="submit"
               value="Sign Up"
-              className="font-semibold bg-[#A31D1D] text-white px-2 py-1 rounded-lg w-20 hover:bg-red-500 cursor-pointer "
+              className="font-semibold bg-[#4F772D] text-white px-2 py-1 rounded-lg w-20 hover:bg-red-500 cursor-pointer "
             />
           </form>
         </div>
