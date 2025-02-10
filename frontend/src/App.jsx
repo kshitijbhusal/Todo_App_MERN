@@ -11,9 +11,15 @@ import Loading from "./pages/Loading";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import { useContext } from "react";
+import { authContext } from "./context/authContext.jsx";
+
 const App = () => {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const { isLoggedIn, setIsLoggedIn } = useContext(authContext);
+
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const checkAuth = async () => {
     try {
@@ -30,7 +36,6 @@ const App = () => {
     checkAuth();
   }, []);
 
-  console.log(isLoggedIn);
   return (
     <>
       <Navbar />

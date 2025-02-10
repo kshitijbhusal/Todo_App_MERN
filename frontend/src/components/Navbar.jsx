@@ -4,8 +4,15 @@ import { Link } from "react-router-dom";
 import { TbLeaf } from "react-icons/tb";
 import axios from "axios";
 
+import { useContext } from "react";
+import { authContext } from "../context/authContext";
+
 const Navbar = () => {
+  const { setIsLoggedIn } = useContext(authContext);
+
   const handleLogout = () => {
+    setIsLoggedIn(false);
+
     axios.defaults.withCredentials = true;
     const res = axios.post("http://localhost:8000/user/logout");
   };
