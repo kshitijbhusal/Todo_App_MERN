@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 export const protect = async (req, res, next) => {
   try {
     const authToken = req.cookies.authToken;
-    console.log(authToken);
 
     if (!authToken) {
       return res.status(401).json({
@@ -13,12 +12,12 @@ export const protect = async (req, res, next) => {
 
     //--------------------------------------------------------Extract token
 
-    const token = authHeader.split(" ")[1];
-
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(authToken, process.env.JWT_SECRET);
 
     //--------------------------------------------------Attach the user ID to the request object
-    req.id = await decoded._id;
+    if (decoded._id) {
+      req.id = await decoded._id;
+    }
 
     next();
   } catch (error) {

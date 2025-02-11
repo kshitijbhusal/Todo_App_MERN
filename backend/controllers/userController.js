@@ -76,9 +76,9 @@ export const login = async (req, res) => {
 
 export const getMe = async (req, res) => {
   const user = await User.findOne({ _id: req.id });
+
   res.status(200).json({
-    message: "This is the First Procted route. By Kshitiz Bhusal",
-    wellcome: `You are wellcome Mr `,
+    user,
   });
 };
 

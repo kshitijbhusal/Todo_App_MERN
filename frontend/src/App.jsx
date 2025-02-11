@@ -12,7 +12,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import { useContext } from "react";
-import { authContext } from "./context/authContext.jsx";
+import { authContext } from "./context/authContext";
+import { UserContextProvider } from "./context/userContext";
 
 const App = () => {
   const navigate = useNavigate();

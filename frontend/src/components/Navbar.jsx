@@ -6,12 +6,15 @@ import axios from "axios";
 
 import { useContext } from "react";
 import { authContext } from "../context/authContext";
+import { userContext } from "../context/userContext";
 
 const Navbar = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(authContext);
+  const { user, setUser } = useContext(userContext);
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    setUser("");
 
     axios.defaults.withCredentials = true;
     const res = axios.post("http://localhost:8000/user/logout");
@@ -24,7 +27,7 @@ const Navbar = () => {
           <TbLeaf size={30} />
         </Link>
       </div>
-      <ul className="flex space-x-6">
+      <ul className="flex space-x-6 items-center ">
         <li>
           <Link
             to="/"
@@ -57,6 +60,14 @@ const Navbar = () => {
             Login
           </Link>
         </li>
+
+        {user && (
+          <button>
+            <div className="h-12 w-12 bg-slate-500  text-white rounded-full flex justify-center items-center text-2xl  border-white uppercase ">
+              {user.username[0]}{" "}
+            </div>
+          </button>
+        )}
 
         {isLoggedIn && (
           <li>
