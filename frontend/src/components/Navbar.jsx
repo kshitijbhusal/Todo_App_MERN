@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { authContext } from "../context/authContext";
 
 const Navbar = () => {
-  const { setIsLoggedIn } = useContext(authContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(authContext);
 
   const handleLogout = () => {
     setIsLoggedIn(false);
@@ -26,19 +26,25 @@ const Navbar = () => {
       </div>
       <ul className="flex space-x-6">
         <li>
-          <Link to="/" className="text-xl px-2 py-1 rounded ">
+          <Link
+            to="/"
+            className="text-xl px-2 py-1 text-white semibold rounded "
+          >
             Home
           </Link>
         </li>
         <li>
-          <Link to="/account" className="text-xl px-2 py-1 rounded ">
+          <Link
+            to="/account"
+            className="text-xl px-2 py-1 text-white semibold rounded "
+          >
             Account
           </Link>
         </li>
         <li>
           <Link
             to="/signup"
-            className="text-black bg-[#E5D0AC] px-2 py-1 rounded-sm w-2"
+            className="text-lg px-4 py-2 text-black font-semibold rounded-lg   border-white bg-yellow-200 hover:bg-yellow-500 "
           >
             Sign Up
           </Link>
@@ -46,20 +52,23 @@ const Navbar = () => {
         <li>
           <Link
             to="/login"
-            className="text-black bg-[#E5D0AC] px-3 py-1   rounded-sm"
+            className="text-lg px-4 py-2 text-black font-semibold rounded-lg   border-white bg-white hover:bg-blue-100"
           >
             Login
           </Link>
         </li>
-        <li>
-          <Link
-            onClick={handleLogout}
-            to="/logout"
-            className="text-black bg-[#E5D0AC] px-3 py-1   rounded-sm"
-          >
-            Logout
-          </Link>
-        </li>
+
+        {isLoggedIn && (
+          <li>
+            <Link
+              onClick={handleLogout}
+              to="/logout"
+              className="text-lg px-4 py-2 text-white font-semibold rounded-lg   bg-red-500 hover:bg-red-700"
+            >
+              Logout
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );
