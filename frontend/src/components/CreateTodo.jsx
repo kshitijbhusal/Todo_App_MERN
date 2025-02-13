@@ -19,21 +19,15 @@ const CreateTodo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (!title || !discription) {
-    //   setError("Todos cannot be empty!");
-    // } else {
-    //   setError("");
-
-    // }
 
     axios.post("http://localhost:8000/todo/create", { title, discription });
   };
 
   return (
-    <div className=" w-[50%] ">
+    <div className="  ">
       {/* //----------------------------------Form for Todos---------------------------------------------- */}
 
-      <div className="w-full h-80  max-w-md  shadow-lg rounded-lg p-6 border border-brown-200">
+      <div className="w-full h-80  max-w-md  shadow-lg rounded-lg p-6 border border-brown-200 ">
         <h1 className="text-2xl font-bold text-brown-700 mb-6 text-center text-[#132A13]">
           Make your todo's now.
         </h1>

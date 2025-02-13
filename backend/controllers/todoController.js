@@ -6,6 +6,7 @@ const createTodo = (req, res) => {
   const todo = Todo.create({
     title,
     discription,
+    user: req.id,
   });
   res.json({
     msg: "todo created sucessfully",
@@ -14,7 +15,7 @@ const createTodo = (req, res) => {
 
 // --------------------------------------------------Fetch all todo
 const getTodo = async (req, res) => {
-  const todos = await Todo.find();
+  const todos = await Todo.find({ user: req.id });
   res.send(todos);
 };
 
@@ -31,7 +32,6 @@ const updateTodo = async (req, res) => {
 // --------------------------------------------------Delete a todo
 
 const deleteTodo = async (req, res) => {
-  let id = "6783a674fceaab59cc0dfcc6";
   const todo = await Todo.findOne({
     id,
   });

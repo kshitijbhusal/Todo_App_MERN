@@ -20,68 +20,70 @@ const Navbar = () => {
     const res = axios.post("http://localhost:8000/user/logout");
   };
   return (
-    <nav className="bg-[#31572C] text-[#ECF39E] h-[4rem] px-4 py-3 flex justify-between items-center">
-      <div className="text-xl font-bold  ">
-        <Link to="/" className="flex">
-          <h1 className="text-2xl">Mindleaf</h1>
-          <TbLeaf size={30} />
-        </Link>
-      </div>
-      <ul className="flex space-x-6 items-center ">
-        <li>
-          <Link
-            to="/"
-            className="text-xl px-2 py-1 text-white semibold rounded "
-          >
-            Home
+    <div className="bg-[#31572C]">
+      <nav className="container mx-auto  text-[#ECF39E] h-[4rem] px-4 py-3 flex justify-between items-center">
+        <div className="text-xl font-bold  ">
+          <Link to="/" className="flex">
+            <h1 className="text-2xl">Mindleaf</h1>
+            <TbLeaf size={30} />
           </Link>
-        </li>
-        <li>
-          <Link
-            to="/account"
-            className="text-xl px-2 py-1 text-white semibold rounded "
-          >
-            Account
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/signup"
-            className="text-lg px-4 py-2 text-black font-semibold rounded-lg   border-white bg-yellow-200 hover:bg-yellow-500 "
-          >
-            Sign Up
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/login"
-            className="text-lg px-4 py-2 text-black font-semibold rounded-lg   border-white bg-white hover:bg-blue-100"
-          >
-            Login
-          </Link>
-        </li>
-
-        {user && (
-          <button>
-            <div className="h-12 w-12 bg-slate-500  text-white rounded-full flex justify-center items-center text-2xl  border-white uppercase ">
-              {user.username[0]}{" "}
-            </div>
-          </button>
-        )}
-
-        {isLoggedIn && (
+        </div>
+        <ul className="flex space-x-6 items-center ">
           <li>
             <Link
-              onClick={handleLogout}
-              to="/logout"
-              className="text-lg px-4 py-2 text-white font-semibold rounded-lg   bg-red-500 hover:bg-red-700"
+              to="/"
+              className="text-xl px-2 py-1 text-white semibold rounded "
             >
-              Logout
+              Home
             </Link>
           </li>
-        )}
-      </ul>
-    </nav>
+          <li>
+            <Link
+              to="/account"
+              className="text-xl px-2 py-1 text-white semibold rounded "
+            >
+              Account
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/signup"
+              className="text-lg px-4 py-2 text-black font-semibold rounded-lg   border-white bg-yellow-200 hover:bg-yellow-500 "
+            >
+              Sign Up
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/login"
+              className="text-lg px-4 py-2 text-black font-semibold rounded-lg   border-white bg-white hover:bg-blue-100"
+            >
+              Login
+            </Link>
+          </li>
+
+          {user && isLoggedIn && (
+            <button>
+              <div className="h-12 w-12 bg-slate-500  text-white rounded-full flex justify-center items-center text-2xl  border-white uppercase ">
+                {user.username[0]}{" "}
+              </div>
+            </button>
+          )}
+
+          {isLoggedIn && (
+            <li>
+              <Link
+                onClick={handleLogout}
+                to="/logout"
+                className="text-lg px-4 py-2 text-white font-semibold rounded-lg   bg-red-500 hover:bg-red-700"
+              >
+                Logout
+              </Link>
+            </li>
+          )}
+        </ul>
+      </nav>
+    </div>
   );
 };
 

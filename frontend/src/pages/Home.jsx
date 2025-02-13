@@ -25,14 +25,18 @@ const Home = () => {
     };
 
     fetchData();
-  }, []);
+  }, [todos]);
 
   return (
     <>
-      <div className="min-h-[calc(100vh-4rem)]  opacity-90 flex items-center justify-between px-36  ">
-        <h1>Hello </h1>
-        <CreateTodo />
-        <Todos todos={todos} />
+      <div className="h-[calc(100vh-4rem)] grid grid-cols-12 px-16   ">
+        <div className=" h-full w-full col-span-6 flex flex-col  justify-center">
+          <CreateTodo />
+        </div>
+
+        <div className=" h-full w-full col-span-6   ">
+          <Todos todos={todos} />
+        </div>
       </div>
     </>
   );
