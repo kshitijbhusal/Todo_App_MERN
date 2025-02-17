@@ -10,7 +10,7 @@ import {
 
 router.route("/create").post(protect, createTodo);
 router.route("/get").get(protect, getTodo);
-router.route("/update").post(updateTodo);
+router.route("/update/:id").patch(updateTodo);
 router.route("/delete").post(deleteTodo);
 
 export default router;

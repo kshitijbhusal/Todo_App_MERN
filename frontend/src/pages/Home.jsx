@@ -11,19 +11,14 @@ const Home = () => {
 
   const [todos, setTodos] = useState([]);
   // const [user, setUser] = useState({});
+  const fetchData = async () => {
+    const res = await axios.get("http://localhost:8000/todo/get");
+    const { data } = await axios.get("http://localhost:8000/user/getMe");
+    setUser(data.user);
+    setTodos(res.data);
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get("http://localhost:8000/todo/get");
-        const { data } = await axios.get("http://localhost:8000/user/getMe");
-        setUser(data.user);
-        setTodos(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
     fetchData();
   }, [todos]);
 

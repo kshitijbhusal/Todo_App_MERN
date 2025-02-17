@@ -21,11 +21,12 @@ const getTodo = async (req, res) => {
 
 // --------------------------------------------------Update a todo as done
 const updateTodo = async (req, res) => {
-  const id = "6783ed391b16e8bfe3577c71";
-  const todo = await Todo.findByIdAndUpdate({ _id: id }, { completed: true });
+  const { id } = req.params;
+  const todo = await Todo.findByIdAndUpdate({ _id: id }, [
+    { $set: { completed: { $not: "$completed" } } },
+  ]);
   res.json({
     msg: "todo updated!",
-    updated: todo,
   });
 };
 
