@@ -14,6 +14,12 @@ A full-stack Todo App built with the MERN stack (MongoDB, Express.js, React.js, 
 - **Database:** MongoDB with Mongoose
 - **Authentication:** JWT & Cookies
 
+## Screenshots of App
+![Screenshot (53)](https://github.com/user-attachments/assets/a88a3124-073c-4811-8a65-925d4aefe964)
+![Screenshot (54)](https://github.com/user-attachments/assets/0934db9f-c451-4d58-b31d-eb39bca64dee)
+![Screenshot (55)](https://github.com/user-attachments/assets/25fa4854-e0c0-40c3-81f6-7f0aeb47e754)
+
+
 ## Installation
 
 1. Clone the repository:
@@ -44,9 +50,5 @@ A full-stack Todo App built with the MERN stack (MongoDB, Express.js, React.js, 
 1. Sign up or log in.
 2. Create tasks and track their completion.
 
-##Screenshots of App
-![Screenshot (53)](https://github.com/user-attachments/assets/a88a3124-073c-4811-8a65-925d4aefe964)
-![Screenshot (54)](https://github.com/user-attachments/assets/0934db9f-c451-4d58-b31d-eb39bca64dee)
-![Screenshot (55)](https://github.com/user-attachments/assets/25fa4854-e0c0-40c3-81f6-7f0aeb47e754)
 
 
